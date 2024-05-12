@@ -1,33 +1,22 @@
-const works = fetch("http://localhost:5678/api/works")
-  .then(res => res.json())
-  .then(works => {
-    console.log(works);
+import { createButton, createButtonAll } from "./button.js";
+import { createWorks } from "./gallery.js";
 
-    createWorks(works);
-})
-  .catch(err => console.error(err))
+// Retrieve works data from the API
+const reponse = await fetch("http://localhost:5678/api/works");
+works = await reponse.json();
+console.log(works)
 
-function createWorks(works){
-    try {
-        for( let i = 0; i < works.length; i++) {
-            const article = works[i];
-            const gallerySection = document.querySelector(".gallery");
-            const worksElement = document.createElement("figure");
+// Retrieve categories data from the API
+const res = await fetch("http://localhost:5678/api/categories")
+category = await res.json()
+console.log(category)
 
-            const imageElement = document.createElement("img");
-            const nameElement = document.createElement("figcaption");
-
-            imageElement.src = article.imageUrl;
-            nameElement.textContent = article.title;
-
-            gallerySection.appendChild(worksElement);
-            worksElement.appendChild(imageElement);
-            worksElement.appendChild(nameElement);
-        }
-    } catch (err) {
-        console.error(err)
-    }
-}
-
+// Display all works by default
 createWorks(works)
+
+// Create "All" button first
+createButtonAll()
+
+// Create buttons for each category
+createButton(category)
 
