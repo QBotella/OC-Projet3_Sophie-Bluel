@@ -1,0 +1,54 @@
+.container {
+    margin-top: 150px;
+    margin-bottom: 355px;
+}
+
+.container h2 {
+    text-align: center;
+    margin-bottom: 37px;
+}
+
+.login-form {
+    max-width: 379px;
+    margin: auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: 500;
+    font-size: 14px;
+    margin-bottom: 7px;
+    color: #3D3D3D;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid transparent;
+    box-shadow: 0px 4px 14px 0px #00000017;
+
+}
+
+button[type="submit"] {
+    background-color: #1D6154;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 60px;
+    display: block;
+    margin: 37px auto 28px auto;
+}
+
+.login-form p{
+    text-align: center;
+    text-decoration: underline;
+    color: #3D3D3D;
+    font-weight: 500;
+    cursor: pointer;
+}
