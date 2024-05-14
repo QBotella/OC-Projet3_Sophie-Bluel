@@ -8,7 +8,7 @@ export function createWorks(works, categoryId) {
 
             // If categoryId is defined, filter works by category
             //   Otherwise, display all works
-            if (categoryId === undefined || article.categoryId === categoryId) {
+            if (categoryId === 0 || article.categoryId === categoryId) {
                 const worksElement = document.createElement("figure");
                 const imageElement = document.createElement("img");
                 const nameElement = document.createElement("figcaption");

@@ -140,9 +140,10 @@ li:hover {
 	color: #1D6154;
 	font-size: 16px;
 	font-weight: 700;
-	background-color: white;
+	background-color: #fffef8;
 	padding: 10px;
 	min-width: 100px;
+	font-family: 'Syne';
 }
 
 .Btn-Filter button.clicked{
