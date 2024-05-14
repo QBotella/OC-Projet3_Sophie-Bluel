@@ -11,8 +11,7 @@
 	<link rel="stylesheet" href="./assets/style.css">
     <link rel="stylesheet" href="./assets/login.css">
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
-	<script src="./assets/variable.js"></script>
-	<script type="module" src="./assets/projet.js"></script>
+	<script src="./assets/login.js"></script>
 </head>
 <body>
     <header>
@@ -31,14 +30,14 @@
             <h2>Log In</h2>
             <form id="loginForm" class="login-form">
                 <div class="form-group">
-                    <label for="username">E-mail</label>
-                    <input type="text" id="username" name="username" required>
+                    <label for="e-mail">E-mail</label>
+                    <input type="text" id="email" name="email" required>
                 </div>
                 <div class="form-group">
                     <label for="password">Mot de passe</label>
                     <input type="password" id="password" name="password" required>
                 </div>
-                <button type="submit">Se Connecter</button>
+                <button type="submit" id="submitButton">Se Connecter</button>
                 <p>Mot de passe oublié</p>
             </form>
         </div>
