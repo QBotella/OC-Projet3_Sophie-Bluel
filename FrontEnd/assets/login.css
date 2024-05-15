@@ -52,3 +52,7 @@ button[type="submit"] {
 	font-weight: 500;
 	cursor: pointer;
 }
+ 
+.loginLink {
+	font-weight: 600;
+}

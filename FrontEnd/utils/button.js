@@ -3,8 +3,8 @@ import { createWorks } from "./gallery.js";
 
 export async function createButton() {
 	try {
-		category = await getData("http://localhost:5678/api/categories");
-		works = await getData("http://localhost:5678/api/works");
+		const category = await getData("http://localhost:5678/api/categories");
+		const works = await getData("http://localhost:5678/api/works");
 
 		category.unshift({ id: 0, name: "Tous" });
 
