@@ -8,12 +8,19 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
+	<script src="https://kit.fontawesome.com/e207d97dd2.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="./assets/style.css">
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
 	<script src="./utils/variable.js"></script>
 	<script type="module" src="./assets/projet.js"></script>
 </head>
 <body>
+	<div class="edition-header" id="editionBanner">
+		<button id="editionOpenButton" class="edition-header_content">
+			<i class="far fa-pen-to-square"></i>
+			<p>Mode édition</p>
+		</button>
+	</div>
 <header>
 	<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
 	<nav>
@@ -38,7 +45,14 @@
 		</article>
 	</section>
 	<section id="portfolio">
-		<h2>Mes Projets</h2>
+		<div class="title-MesProjets">
+			<h2>Mes Projets</h2>
+			<button id="projectModificationButton">
+				<i class="fa-regular fa-pen-to-square"></i>
+				<span>modifier</span>
+			</button>
+			</div>
+		</div>
 		<div class="Btn-Filter"></div>
 		<div class="gallery">
 		</div>
@@ -56,6 +70,7 @@
 			<input type="submit" value="Envoyer">
 		</form>
 	</section>
+	<aside id="modalProjectModification"></aside>
 </main>
 
 <footer>
