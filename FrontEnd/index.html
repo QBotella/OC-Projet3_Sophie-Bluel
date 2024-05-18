@@ -80,6 +80,34 @@
 			<button class="button-addWorks">Ajouter une photo</button>
 		</div>
 	</aside>
+	<aside id="modalAddProject">
+		<div class="modal-content">
+			<i class="fas fa-arrow-left back-icon"></i>
+			<span class="close-modal">&times;</span>
+			<h3>Ajout photo</h3>
+			<form id="addProject">
+				<div class="image-form-group">
+					<i class="fa-regular fa-image"></i>
+					<button>
+						<label for="image">+ Ajouter photo</label>
+						<input type="file" id="image" name="image" accept="image/*" required>
+					</button>
+					<p>jpg, png : 4mo max</p>
+				</div>
+				<div class="form-group">
+					<label for="title">Titre</label>
+					<input type="text" id="title" name="title" required>
+				</div>
+				<div class="form-group">
+					<label for="category">Catégorie</label>
+					<select name="category" id="category"required></select>
+				</div>
+				<button type="submit" class="btn-valid">Valider</button>
+			</form>
+			<div class="line"></div>
+		</div>
+		
+	</aside>
 </main>
 
 <footer>

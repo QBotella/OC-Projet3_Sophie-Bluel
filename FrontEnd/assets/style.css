@@ -275,7 +275,8 @@ footer nav ul {
 	margin: 2em
 }
 
-#modalProjectModification {
+#modalProjectModification,
+#modalAddProject {
 	display: none; 
 	position: fixed; 
 	z-index: 1; 
@@ -290,8 +291,8 @@ footer nav ul {
 	background-color: #fff;
 	margin: 15% auto; 
 	padding: 0 105px;
-	max-width: 548px; 
-	height: 772px; 
+	max-width: 420px; 
+	height: 688px; 
 	position: relative;
 	border-radius: 10px;
     display: flex;
@@ -301,9 +302,9 @@ footer nav ul {
 
 .close-modal {
     position: absolute;
-    top: 32px;
-    right: 36px;
-    font-size: 24px;
+    top: 24px;
+    right: 30px;
+    font-size: 30px;
     display: flex;
     justify-content: center;
     cursor: pointer;
@@ -378,4 +379,97 @@ footer nav ul {
 	border: transparent;
 	position: absolute;
 	bottom: 45px;
+}
+
+.back-icon {
+	position: absolute;
+    top: 26px;
+    left: 30px;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+#addProject {
+	width: 100%;
+	margin-top: 36px;
+}
+
+.form-group {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	font-size: 14px;
+	font-weight: 500;
+	color: #3d3d3d;
+	margin-top: 21px;
+}
+
+.image-form-group {
+	display: flex;
+	flex-direction: column;
+	background-color: #E8F1F6;
+	height: 169px;
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+.image-form-group i{
+	font-size: 66px;
+	color: #B9C5CC;
+	margin-top: 22.5px;
+}
+
+.image-form-group button{
+	border-radius: 60px;
+	padding: 10px 33px;
+	background-color: #CBD6DC;
+	margin: auto;
+	cursor: pointer;
+	border: none;
+	max-width: 173px;
+	max-height: 36px;
+	margin-top: 12px;
+	margin-bottom: 8px;
+}
+
+.image-form-group label{
+	z-index: 1;
+	color: #306685;
+}
+
+.image-form-group input{
+	z-index: 0;
+	opacity: 0;
+}
+
+.image-form-group p{
+	font-size: 10px;
+	font-weight: 400;
+	color: #444444;
+}
+
+.form-group input[type="text"],
+.form-group select{
+	height: 51px;
+	box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.09);
+	border: none;
+	outline: none;
+	background: #fff;
+}
+
+.btn-valid {
+	border-radius: 60px;
+	background-color: #A7A7A7;
+	width: 237px;
+	padding: 10px 49px;
+	color: #fff;
+	font-size: 14px;
+	font-family: 'Syne';
+	font-weight: 700;
+	border: transparent;
+	position: absolute;
+	bottom: 55px;
+	left: 195px;
 }

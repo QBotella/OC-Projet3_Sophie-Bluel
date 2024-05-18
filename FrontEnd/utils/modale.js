@@ -1,5 +1,6 @@
 import { getData } from "../utils/fetch.js";
 
+// Function to open the modal
 export const openModal = (button, modal) => {
     button.addEventListener("click", () => {
         modal.style.display = "block"
@@ -7,17 +8,19 @@ export const openModal = (button, modal) => {
     })
 }
 
+// Function to close the modal
 export const closeModal = (button, modal) => {
     button.addEventListener("click", () => {
-        modal.style.display = "none"
+        modal.style.display = "none" // Hide the modal
     })
     window.addEventListener("click", (e) => {
         if (e.target == modal) {
-            modal.style.display = "none"
+            modal.style.display = "none" // Hide the modal if user clicks outside of it
         }
     })
 }
 
+// Function to delete a project
 const deleteWorks = async (workId) => {
     // Function to delete work from the server
     await fetch(`http://localhost:5678/api/works/${workId}`, {
@@ -29,6 +32,7 @@ const deleteWorks = async (workId) => {
     populateGallery(); // Refresh the gallery after deletion
 };
 
+// Function to populate the Gallery
 const populateGallery = async () => {
     const gallery = document.querySelector(".modal-gallery")
     const works = await getData("http://localhost:5678/api/works");
@@ -57,5 +61,20 @@ const populateGallery = async () => {
         gallery.append(imageContainer)
     });
 }
-   
 
+// Function to populate the Category selector
+export const populateCategory = async (preselectedCategory) => {
+    const categorySelect = document.getElementById("category");
+    const categories = await getData("http://localhost:5678/api/categories");
+    categorySelect.innerHTML = "";
+
+    categories.forEach(category => {
+        const option = document.createElement("option");
+        option.value = category.id;
+        option.textContent = category.name;
+        if (category.name === preselectedCategory) {
+            option.selected = true;
+        }
+        categorySelect.appendChild(option);
+    });
+};

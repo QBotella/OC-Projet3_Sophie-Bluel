@@ -1,14 +1,22 @@
 import { createButton } from "../utils/button.js";
-import { openModal, closeModal } from "../utils/modale.js";
+import { openModal, closeModal, populateCategory } from "../utils/modale.js";
 
 // Create Filter Button and Start with button "tous" use
 createButton();
 
 document.addEventListener("DOMContentLoaded", () => {
-    const openModalButton = document.getElementById("projectModificationButton");
+    const projectModificationButton = document.getElementById("projectModificationButton");
     const closeModalButton = document.querySelector(".close-modal");
-    const modal = document.getElementById("modalProjectModification");
+    const modalProjectModification = document.getElementById("modalProjectModification");
+    const buttonOpenAddWorks = document.querySelector(".button-addWorks");
+    const modalAddProject = document.getElementById("modalAddProject");
 
-    openModal(openModalButton, modal);
-    closeModal(closeModalButton, modal);
+    openModal(projectModificationButton, modalProjectModification);
+    closeModal(closeModalButton, modalProjectModification);
+    closeModal(buttonOpenAddWorks, modalProjectModification);
+
+    openModal(buttonOpenAddWorks, modalAddProject);
+    closeModal(closeModalButton, modalAddProject);
+
+    populateCategory(category)
 });
