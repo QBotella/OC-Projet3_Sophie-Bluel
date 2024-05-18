@@ -12,8 +12,8 @@ async function login(email, password) {
         // Check if the request was successful
         if (response.ok) {
             const data = await response.json();
-            // Process the response display a success message
-            console.log('Connexion réussie !', data);
+            // Stocke le token dans la session
+            window.sessionStorage.setItem('token', data.token);
             // Redirect to another page
             window.location.href = "index.html";
         } else {
