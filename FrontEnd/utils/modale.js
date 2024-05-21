@@ -78,3 +78,51 @@ export const populateCategory = async (preselectedCategory) => {
         categorySelect.appendChild(option);
     });
 };
+
+export const addWorks = async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const title = formData.get("title");
+    const categoryId = formData.get("category");
+    const imageFile = formData.get("image");
+
+    const projectData = new FormData();
+    projectData.append("image", imageFile);
+    projectData.append("title", title);
+    projectData.append("categoryId", categoryId);
+
+    try {
+        const response = await fetch('http://localhost:5678/api/works', {
+            method: 'POST',
+            body: projectData
+        });
+
+        if (response.ok) {
+            alert("Projet ajouté avec succès !");
+            document.getElementById("modalAddProject").style.display = "none";
+        } else {
+            alert("Erreur lors de l'ajout du projet.");
+        }
+    } catch (error) {
+        console.error('Erreur:', error);
+        alert("Une erreur est survenue.");
+    }
+};
+
+// Function to check form validity and enable submit button
+export const checkFormValidity = () => {
+    const title = document.getElementById("title").value;
+    const category = document.getElementById("category").value;
+    const image = document.getElementById("image").files.length > 0;
+    const submitBtn = document.querySelector(".btn-valid");
+
+    if (title && category && image) {
+        submitBtn.disabled = false;
+        submitBtn.classList.add("enabled");
+    } else {
+        submitBtn.disabled = true;
+        submitBtn.classList.remove("enabled");
+    }
+}
+
+

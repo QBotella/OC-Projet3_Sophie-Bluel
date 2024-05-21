@@ -63,7 +63,7 @@ body footer{
 	background-color: #000;
 	height: 59px;
 	width: 100%;
-	display: flex;
+	display: none;
 	align-items: center;
 	justify-content: center;
 }
@@ -168,7 +168,7 @@ li:hover {
 }
 
 #projectModificationButton {
-	display: flex;
+	display: none;
 	align-items: center;
 	width: fit-content;
 	background-color: transparent;
@@ -437,6 +437,7 @@ footer nav ul {
 .image-form-group label{
 	z-index: 1;
 	color: #306685;
+	cursor: pointer;
 }
 
 .image-form-group input{
@@ -457,11 +458,14 @@ footer nav ul {
 	border: none;
 	outline: none;
 	background: #fff;
+	font-size: 14px;
+	padding-left: 16px;
+	color: #444444;
+	font-weight: 400;
 }
 
 .btn-valid {
 	border-radius: 60px;
-	background-color: #A7A7A7;
 	width: 237px;
 	padding: 10px 49px;
 	color: #fff;
@@ -472,4 +476,12 @@ footer nav ul {
 	position: absolute;
 	bottom: 55px;
 	left: 195px;
+}
+
+.btn-valid:disabled {
+	background-color: #A7A7A7;
+}
+
+.btn-valid .enabled {
+	background-color: #1D6154 !important;
 }

@@ -1,8 +1,7 @@
-import { createButton } from "../utils/button.js";
-import { openModal, closeModal, populateCategory } from "../utils/modale.js";
+import { openModal, closeModal, populateCategory, addWorks, checkFormValidity } from "../utils/modale.js";
+import { setLoggedHomePage } from "./login.js";
 
-// Create Filter Button and Start with button "tous" use
-createButton();
+
 
 document.addEventListener("DOMContentLoaded", () => {
     const projectModificationButton = document.getElementById("projectModificationButton");
@@ -10,7 +9,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const modalProjectModification = document.getElementById("modalProjectModification");
     const buttonOpenAddWorks = document.querySelector(".button-addWorks");
     const modalAddProject = document.getElementById("modalAddProject");
+    const addProject = document.querySelector(".btn-valid")
 
+    setLoggedHomePage();
+    
     openModal(projectModificationButton, modalProjectModification);
     closeModal(closeModalButton, modalProjectModification);
     closeModal(buttonOpenAddWorks, modalProjectModification);
@@ -18,5 +20,11 @@ document.addEventListener("DOMContentLoaded", () => {
     openModal(buttonOpenAddWorks, modalAddProject);
     closeModal(closeModalButton, modalAddProject);
 
-    populateCategory(category)
+    populateCategory(category);
+
+    addProject.addEventListener("submit", () => {
+        addWorks();
+    })
+
+    checkFormValidity();
 });
