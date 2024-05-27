@@ -97,20 +97,24 @@
       <aside id="modalAddProject">
         <div class="modal-content">
           <i class="fas fa-arrow-left back-icon"></i>
-          <span class="close-modal">&times;</span>
+          <span class="close-modal2">&times;</span>
           <h3>Ajout photo</h3>
           <form id="addProject">
             <div class="image-form-group">
-              <i class="fa-regular fa-image"></i>
-              <button>
-                <label for="image">+ Ajouter photo</label>
-                <input
-                  type="file"
-                  id="image"
-                  name="image"
-                  accept="image/*"
-                  required
-                />
+              <div class="image-afficher">
+                <i class="fa-regular fa-image"></i>
+              </div>
+              <button class="upload-file-trigger">
+                <label for="image"
+                  >+ Ajouter photo
+                  <input
+                    type="file"
+                    id="image"
+                    name="image"
+                    accept="image/png, image/jpeg"
+                    required
+                  />
+                </label>
               </button>
               <p>jpg, png : 4mo max</p>
             </div>

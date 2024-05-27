@@ -3,6 +3,7 @@ import {
   closeModal,
   populateCategory,
   addWorks,
+  checkImage,
   checkFormValidity,
 } from "../utils/modale.js";
 import { setLoggedHomePage } from "./login.js";
@@ -18,6 +19,13 @@ const buttonOpenAddWorks = document.querySelector(".button-addWorks");
 const modalAddProject = document.getElementById("modalAddProject");
 const addProject = document.getElementById("#addProject");
 const modalBackButton = document.querySelector(".back-icon");
+const closeModal2Button = document.querySelector(".close-modal2");
+const image = document.getElementById("image");
+const imageAfficher = document.querySelector(".image-afficher");
+const uploadButton = document.querySelector(".upload-file-trigger");
+const uploadButtonText = document.querySelector(".image-form-group>p");
+const uploadTitle = document.getElementById("#title");
+const uploadCategory = document.getElementById("#category");
 
 setLoggedHomePage();
 
@@ -27,14 +35,46 @@ closeModal(closeModalButton, modalProjectModification);
 closeModal(buttonOpenAddWorks, modalProjectModification);
 
 openModal(buttonOpenAddWorks, modalAddProject);
-closeModal(closeModalButton, modalAddProject);
+closeModal(closeModal2Button, modalAddProject);
 closeModal(modalBackButton, modalAddProject);
 
 populateCategory(category);
 
-addProject.addEventListener("submit", (e) => {
+addProject?.addEventListener("submit", (e) => {
   e.preventDefault();
   addWorks(e);
 });
 
-checkFormValidity();
+image.addEventListener("change", (e) => {
+  const file = e.target.files[0];
+
+  if (!file) {
+    return;
+  }
+
+  if (!checkImage(file)) {
+    return;
+  }
+
+  const reader = new FileReader();
+
+  reader.addEventListener("load", (e) => {
+    imageAfficher.innerHTML = "";
+
+    const img = document.createElement("img");
+
+    img.src = e.target.result;
+    imageAfficher.append(img);
+
+    uploadButton.style.display = "none";
+    uploadButtonText.style.display = "none";
+  });
+
+  reader.readAsDataURL(file);
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  uploadTitle.addEventListener("change", checkFormValidity);
+  uploadCategory.addEventListener("change", checkFormValidity);
+  image.addEventListener("change", checkFormValidity);
+});
