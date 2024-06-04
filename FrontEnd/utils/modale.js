@@ -48,27 +48,33 @@ const populateGallery = async () => {
   const works = await getData("http://localhost:5678/api/works");
   gallery.innerHTML = "";
 
+  // Create an image element for each work
   works.forEach((work) => {
+    // Create an image element for each work
     const imageElement = document.createElement("img");
     imageElement.src = work.imageUrl;
 
+    // Create a delete icon element
     const deleteIcon = document.createElement("i");
     deleteIcon.classList.add("fas", "fa-trash-alt", "trash-icon");
 
+    // Create a delete button and add the delete icon to it
     const deleteButton = document.createElement("button");
     deleteButton.classList.add("btn-delete");
     deleteButton.addEventListener("click", (e) => {
       e.preventDefault();
-      deleteWorks(work.id);
+      deleteWorks(work.id); // Call the function to delete the work item
     });
 
     deleteButton.append(deleteIcon);
 
+    // Create a container for the image and the delete button
     const imageContainer = document.createElement("div");
     imageContainer.classList.add("image-container");
     imageContainer.append(imageElement);
     imageContainer.append(deleteButton);
 
+    // Append the container to the gallery
     gallery.append(imageContainer);
   });
 };
@@ -79,17 +85,24 @@ export const populateCategory = async (preselectedCategory) => {
   const categories = await getData("http://localhost:5678/api/categories");
   categorySelect.innerHTML = "";
 
+  // Loop through each category retrieved from the API
   categories.forEach((category) => {
+    // Create an option element for each category
     const option = document.createElement("option");
     option.value = category.id;
     option.textContent = category.name;
+
+    // Preselect the option if it matches the preselected category
     if (category.name === preselectedCategory) {
       option.selected = true;
     }
+
+    // Append the option to the category selector
     categorySelect.appendChild(option);
   });
 };
 
+// Function to add a new work item
 export const addWorks = async (file, title, category) => {
   const projectData = new FormData();
   projectData.append("image", file);
@@ -106,6 +119,7 @@ export const addWorks = async (file, title, category) => {
     });
 
     if (response.ok) {
+      // Close the modal and update the homepage
       document.getElementById("modalAddProject").style.display = "none";
       setLoggedHomePage();
     } else {
@@ -121,6 +135,7 @@ const uploadTitle = document.getElementById("title");
 const uploadCategory = document.getElementById("category");
 const submitBtn = document.querySelector(".btn-valid");
 
+// Function to check if the image file is valid
 export const checkImage = (file) => {
   // Check whether the file is a PNG or JPEG image
   if (!(file.type.includes("image/png") || file.type.includes("image/jpeg"))) {
@@ -137,21 +152,25 @@ export const checkImage = (file) => {
   return true;
 };
 
+// Function to check if the title is valid
 export const checkTitle = (title) => {
-  return title.length > 2;
+  return title.length > 0;
 };
 
+// Function to check if the category is valid
 export const checkCategory = (category) => {
   if (category !== "0") {
     return category;
   }
 };
 
+// Function to check the overall form validity
 export const checkFormValidity = () => {
   const file = image.files[0];
   const title = uploadTitle.value;
   const category = uploadCategory.value;
 
+  // Check if all form inputs are valid
   if (
     file &&
     checkImage(file) &&

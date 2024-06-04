@@ -1,3 +1,4 @@
+// Import necessary functions and modules
 import {
   openModal,
   closeModal,
@@ -8,6 +9,7 @@ import {
 } from "../utils/modale.js";
 import { setLoggedHomePage } from "./login.js";
 
+// Select elements from the DOM
 const projectModificationButton = document.getElementById(
   "projectModificationButton"
 );
@@ -27,8 +29,10 @@ const uploadButtonText = document.querySelector(".image-form-group>p");
 const uploadTitle = document.getElementById("title");
 const uploadCategory = document.getElementById("category");
 
+// Initialize the home page
 setLoggedHomePage();
 
+// Set up event listeners for opening and closing modals
 openModal(projectModificationButton, modalProjectModification);
 openModal(modalBackButton, modalProjectModification);
 closeModal(closeModalButton, modalProjectModification);
@@ -38,14 +42,17 @@ openModal(buttonOpenAddWorks, modalAddProject);
 closeModal(closeModal2Button, modalAddProject);
 closeModal(modalBackButton, modalAddProject);
 
+// Populate the category dropdown
 populateCategory(category);
 
 image.addEventListener("change", (e) => {
   const file = e.target.files[0];
   if (!file) return;
 
+  // Check if the file is a valid image
   if (!checkImage(file)) return;
 
+  // Read the image file and display it
   const reader = new FileReader();
   reader.addEventListener("load", (e) => {
     imageAfficher.innerHTML = "";
@@ -58,6 +65,7 @@ image.addEventListener("change", (e) => {
   reader.readAsDataURL(file);
 });
 
+// Event listeners for form input changes to check form validity
 if (uploadTitle) {
   uploadTitle.addEventListener("input", checkFormValidity);
 }
@@ -66,6 +74,7 @@ if (uploadCategory) {
   uploadCategory.addEventListener("change", checkFormValidity);
 }
 
+// Event listener for form submission to add a new work
 addProject.addEventListener("submit", (e) => {
   e.preventDefault();
   addWorks(image.files[0], uploadTitle.value, uploadCategory.value);
