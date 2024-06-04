@@ -17,13 +17,13 @@
     ></script>
     <link rel="stylesheet" href="./assets/style.css" />
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    <script type="module" src="./assets/projet.js" defer></script>
+    <script type="module" src="./assets/projet.js"></script>
   </head>
   <body>
     <div class="edition-header" id="editionBanner">
       <button id="editionOpenButton" class="edition-header_content">
         <i class="far fa-pen-to-square"></i>
-        <p>Mode édition</p>
+        <span>Mode édition</span>
       </button>
     </div>
     <header>
@@ -33,7 +33,9 @@
           <li><a href="index.html">projets</a></li>
           <li><a href="#contact">contact</a></li>
           <li><a href="#" class="loginLink">login</a></li>
-          <li><img src="./assets/icons/instagram.png" alt="Instagram" /></li>
+          <li>
+            <img src="./assets/icons/instagram.png" alt="Instagram" />
+          </li>
         </ul>
       </nav>
     </header>
@@ -99,23 +101,21 @@
           <i class="fas fa-arrow-left back-icon"></i>
           <span class="close-modal2">&times;</span>
           <h3>Ajout photo</h3>
-          <form id="addProject">
+          <form id="addProject" enctype="multipart/form-data">
             <div class="image-form-group">
               <div class="image-afficher">
                 <i class="fa-regular fa-image"></i>
               </div>
-              <button class="upload-file-trigger">
-                <label for="image"
-                  >+ Ajouter photo
-                  <input
-                    type="file"
-                    id="image"
-                    name="image"
-                    accept="image/png, image/jpeg"
-                    required
-                  />
-                </label>
-              </button>
+              <div class="upload-file-trigger">
+                <label for="image">+ Ajouter photo </label>
+                <input
+                  type="file"
+                  id="image"
+                  name="image"
+                  accept="image/png, image/jpeg"
+                  required
+                />
+              </div>
               <p>jpg, png : 4mo max</p>
             </div>
             <div class="form-group">
@@ -124,7 +124,7 @@
             </div>
             <div class="form-group">
               <label for="category">Catégorie</label>
-              <select name="category" id="category" required></select>
+              <select name="category" id="category"></select>
             </div>
             <button type="submit" class="btn-valid" disabled>Valider</button>
           </form>

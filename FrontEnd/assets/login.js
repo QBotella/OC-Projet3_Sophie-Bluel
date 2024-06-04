@@ -46,9 +46,7 @@ function handleFormSubmit(event) {
 }
 
 // Add an event listener for form submission
-if (window.location.href.split("/").pop() !== "index.html") {
-  loginForm.addEventListener("submit", handleFormSubmit);
-}
+loginForm?.addEventListener("submit", handleFormSubmit);
 
 // Function to set up the home page after login
 export const setLoggedHomePage = async () => {

@@ -1,3 +1,4 @@
+import { setLoggedHomePage } from "../assets/login.js";
 import { getData } from "../utils/fetch.js";
 import { createWorks } from "../utils/gallery.js";
 
@@ -89,17 +90,11 @@ export const populateCategory = async (preselectedCategory) => {
   });
 };
 
-export const addWorks = async (e) => {
-  e.preventDefault();
-  const formData = new FormData(event.target);
-  const title = formData.get("title");
-  const categoryId = formData.get("category");
-  const imageFile = formData.get("image");
-
+export const addWorks = async (file, title, category) => {
   const projectData = new FormData();
-  projectData.append("image", imageFile);
+  projectData.append("image", file);
   projectData.append("title", title);
-  projectData.append("categoryId", categoryId);
+  projectData.append("category", category);
 
   try {
     const response = await fetch("http://localhost:5678/api/works", {
@@ -111,8 +106,8 @@ export const addWorks = async (e) => {
     });
 
     if (response.ok) {
-      alert("Projet ajouté avec succès !");
       document.getElementById("modalAddProject").style.display = "none";
+      setLoggedHomePage();
     } else {
       alert("Erreur lors de l'ajout du projet.");
     }
@@ -121,6 +116,10 @@ export const addWorks = async (e) => {
     alert("Une erreur est survenue.");
   }
 };
+
+const uploadTitle = document.getElementById("title");
+const uploadCategory = document.getElementById("category");
+const submitBtn = document.querySelector(".btn-valid");
 
 export const checkImage = (file) => {
   // Check whether the file is a PNG or JPEG image
@@ -143,7 +142,9 @@ export const checkTitle = (title) => {
 };
 
 export const checkCategory = (category) => {
-  return category !== "";
+  if (category !== "0") {
+    return category;
+  }
 };
 
 export const checkFormValidity = () => {

@@ -1,53 +1,58 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-	<meta charset="UTF-8">
-	<title>Sophie Bluel - Architecte d'intérieur - login</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
-	<meta name="description" content="">
-	<link rel="stylesheet" href="./assets/style.css">
-    <link rel="stylesheet" href="./assets/login.css">
-	<link rel="icon" href="favicon.ico" type="image/x-icon">
-	<script type="module" src="./assets/login.js" defer></script>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sophie Bluel - Architecte d'intérieur - login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="./assets/style.css" />
+    <link rel="stylesheet" href="./assets/login.css" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <script type="module" src="./assets/login.js"></script>
+  </head>
+  <body>
     <header>
-	    <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
-    	<nav>
-		    <ul>
-		    	<li><a href="index.html">projets</li></a>
-	    		<li><a href="index.html#contact">contact</li></a>
-    			<li><a href="login.html" class="loginLink">login</li></a>
-			    <li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
-		    </ul>
-	    </nav>
+      <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">projets</a></li>
+          <li><a href="index.html#contact">contact</a></li>
+          <li><a href="login.html" class="loginLink">login</a></li>
+          <li>
+            <img src="./assets/icons/instagram.png" alt="Instagram" />
+          </li>
+        </ul>
+      </nav>
     </header>
     <main>
-        <div class="container">
-            <h2>Log In</h2>
-            <form id="loginForm" class="login-form">
-                <div class="form-group">
-                    <label for="e-mail">E-mail</label>
-                    <input type="text" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Mot de passe</label>
-                    <input type="password" id="password" name="password" required>
-                </div>
-                <button type="submit" id="submitButton">Se Connecter</button>
-                <p>Mot de passe oublié</p>
-            </form>
-        </div>
+      <div class="container">
+        <h2>Log In</h2>
+        <form id="loginForm" class="login-form">
+          <div class="login-form-group">
+            <label for="email">E-mail</label>
+            <input type="text" id="email" name="email" required />
+          </div>
+          <div class="login-form-group">
+            <label for="password">Mot de passe</label>
+            <input type="password" id="password" name="password" required />
+          </div>
+          <button type="submit" id="submitButton">Se Connecter</button>
+          <p>Mot de passe oublié</p>
+        </form>
+      </div>
     </main>
     <footer>
-        <nav>
-            <ul>
-                <li>Mentions Légales</li>
-            </ul>
-        </nav>
+      <nav>
+        <ul>
+          <li>Mentions Légales</li>
+        </ul>
+      </nav>
     </footer>
-</body>
+  </body>
 </html>
