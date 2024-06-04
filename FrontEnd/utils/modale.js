@@ -1,4 +1,5 @@
 import { getData } from "../utils/fetch.js";
+import { createWorks } from "../utils/gallery.js";
 
 // Function to open the modal
 export const openModal = (button, modal) => {
@@ -88,8 +89,8 @@ export const populateCategory = async (preselectedCategory) => {
   });
 };
 
-export const addWorks = async (event) => {
-  event.preventDefault();
+export const addWorks = async (e) => {
+  e.preventDefault();
   const formData = new FormData(event.target);
   const title = formData.get("title");
   const categoryId = formData.get("category");
@@ -103,6 +104,9 @@ export const addWorks = async (event) => {
   try {
     const response = await fetch("http://localhost:5678/api/works", {
       method: "POST",
+      headers: {
+        authorization: `Bearer ${window.sessionStorage.getItem("token")}`,
+      },
       body: projectData,
     });
 
@@ -135,30 +139,23 @@ export const checkImage = (file) => {
 };
 
 export const checkTitle = (title) => {
-  if (title && title.length > 2) {
-    return true;
-  } else {
-    return false;
-  }
+  return title.length > 2;
 };
 
 export const checkCategory = (category) => {
-  if (category !== null) {
-    return true;
-  } else {
-    return false;
-  }
+  return category !== "";
 };
 
 export const checkFormValidity = () => {
-  const titleValue = uploadTitle.value;
-  const categoryValue = uploadCategory.value;
-  const submitBtn = document.querySelector(".btn-valid");
+  const file = image.files[0];
+  const title = uploadTitle.value;
+  const category = uploadCategory.value;
 
   if (
-    checkTitle(titleValue) &&
-    checkCategory(categoryValue) &&
-    image.files.length > 0
+    file &&
+    checkImage(file) &&
+    checkTitle(title) &&
+    checkCategory(category)
   ) {
     submitBtn.disabled = false;
     submitBtn.classList.add("enabled");
