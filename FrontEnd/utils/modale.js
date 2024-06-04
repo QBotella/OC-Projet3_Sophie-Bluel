@@ -85,6 +85,11 @@ export const populateCategory = async (preselectedCategory) => {
   const categories = await getData("http://localhost:5678/api/categories");
   categorySelect.innerHTML = "";
 
+  categories.unshift({
+    id: 0,
+    name: "",
+  });
+
   // Loop through each category retrieved from the API
   categories.forEach((category) => {
     // Create an option element for each category
