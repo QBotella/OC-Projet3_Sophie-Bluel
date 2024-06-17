@@ -125,6 +125,9 @@ export const addWorks = async (file, title, category) => {
     if (response.ok) {
       // Close the modal and update the homepage
       document.getElementById("modalAddProject").style.display = "none";
+
+      // Reset the form
+      document.getElementById("addProject").reset();
       setLoggedHomePage();
     } else {
       alert("Erreur lors de l'ajout du projet.");
