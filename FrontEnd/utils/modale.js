@@ -48,7 +48,6 @@ const populateGallery = async () => {
   const works = await getData("http://localhost:5678/api/works");
   gallery.innerHTML = "";
 
-  // Create an image element for each work
   works.forEach((work) => {
     // Create an image element for each work
     const imageElement = document.createElement("img");
