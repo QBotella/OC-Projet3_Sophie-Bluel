@@ -78,11 +78,11 @@ if (uploadCategory) {
 }
 
 // Event listener for form submission to add a new work
-addProjectForm.addEventListener("submit", (e) => {
+addProject.addEventListener("submit", (e) => {
   e.preventDefault(); // Prevent the default form behavior (page submission)
 
   // Call the addWorks function with the values from the form fields
-  addWorks(imageInput.files[0], uploadTitle.value, uploadCategory.value);
+  addWorks(image.files[0], uploadTitle.value, uploadCategory.value);
 
   // Reset the addProject modal form when the project is submitted
   resetFormSend();
