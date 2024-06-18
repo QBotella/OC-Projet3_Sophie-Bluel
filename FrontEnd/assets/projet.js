@@ -8,6 +8,7 @@ import {
   checkFormValidity,
 } from "../utils/modale.js";
 import { setLoggedHomePage } from "./login.js";
+import { resetFormSend } from "../utils/resetFormSend.js";
 
 // Select elements from the DOM
 const projectModificationButton = document.getElementById(
@@ -52,6 +53,8 @@ image.addEventListener("change", (e) => {
   // Check if the file is a valid image
   if (!checkImage(file)) return;
 
+  checkFormValidity();
+
   // Read the image file and display it
   const reader = new FileReader();
   reader.addEventListener("load", (e) => {
@@ -75,7 +78,12 @@ if (uploadCategory) {
 }
 
 // Event listener for form submission to add a new work
-addProject.addEventListener("submit", (e) => {
-  e.preventDefault();
-  addWorks(image.files[0], uploadTitle.value, uploadCategory.value);
+addProjectForm.addEventListener("submit", (e) => {
+  e.preventDefault(); // Prevent the default form behavior (page submission)
+
+  // Call the addWorks function with the values from the form fields
+  addWorks(imageInput.files[0], uploadTitle.value, uploadCategory.value);
+
+  // Reset the addProject modal form when the project is submitted
+  resetFormSend();
 });

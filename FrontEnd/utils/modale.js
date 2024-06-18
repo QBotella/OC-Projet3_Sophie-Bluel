@@ -1,6 +1,7 @@
 import { setLoggedHomePage } from "../assets/login.js";
 import { getData } from "../utils/fetch.js";
 import { createWorks } from "../utils/gallery.js";
+import { resetFormSend } from "../utils/resetFormSend.js";
 
 // Function to open the modal
 export const openModal = (button, modal) => {
@@ -14,10 +15,12 @@ export const openModal = (button, modal) => {
 export const closeModal = (button, modal) => {
   button.addEventListener("click", () => {
     modal.style.display = "none"; // Hide the modal
+    resetFormSend(); // Reset the addProject modal form when the modal is closed
   });
   window.addEventListener("click", (e) => {
     if (e.target == modal) {
       modal.style.display = "none"; // Hide the modal if user clicks outside of it
+      resetFormSend(); // Reset the addProject modal form when the modal is closed
     }
   });
 };
@@ -126,8 +129,6 @@ export const addWorks = async (file, title, category) => {
       // Close the modal and update the homepage
       document.getElementById("modalAddProject").style.display = "none";
 
-      // Reset the form
-      document.getElementById("addProject").reset();
       setLoggedHomePage();
     } else {
       alert("Erreur lors de l'ajout du projet.");
